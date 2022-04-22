@@ -23,7 +23,7 @@
             android:marqueeRepeatLimit="marquee_forever"
             android:padding="20dp"
             android:singleLine="true"
-            android:text="Play Now: Playlist <Unknown>"
+            android:text="Play Now: Playlist &lt;Unknown&gt;"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="16dp" />
@@ -34,18 +34,11 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/player_thumbnail" />
 
-        <Button
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/player_favorites_icon" />
 
         <SeekBar
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-
-            />
+            android:layout_marginTop="20dp" />
 
     </LinearLayout>
 
