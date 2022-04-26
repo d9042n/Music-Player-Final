@@ -1,10 +1,10 @@
 package com.example.musicplayer.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class User {
+public class User implements Serializable {
     private String username;
-    private String password;
     private String email;
     private String fullName;
     private Date birthdate;
@@ -14,9 +14,8 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String email, String fullName, Date birthdate, String country, String userID) {
+    public User(String username, String email, String fullName, Date birthdate, String country, String userID) {
         this.username = username;
-        this.password = password;
         this.email = email;
         this.fullName = fullName;
         this.birthdate = birthdate;
@@ -32,13 +31,6 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public String getEmail() {
         return email;
