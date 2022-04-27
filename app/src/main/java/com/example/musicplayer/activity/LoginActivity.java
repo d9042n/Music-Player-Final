@@ -20,7 +20,7 @@ import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText editTextEmail;
+    private EditText editTextUsernameOrEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
     private User user;
@@ -30,17 +30,17 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextEmail = findViewById(R.id.loginEditTextEmail);
+        editTextUsernameOrEmail = findViewById(R.id.loginEditTextUsernameOrEmail);
         editTextPassword = findViewById(R.id.loginEditTextPassword);
         buttonLogin = findViewById(R.id.loginButtonLogin);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email = editTextEmail.getText().toString().trim();
+                String usernameOrEmail = editTextUsernameOrEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
-                APIService.userAPIService.userLogin(email, password).enqueue(new Callback<LoginResponse>() {
+                APIService.userAPIService.userLogin(usernameOrEmail, password).enqueue(new Callback<LoginResponse>() {
                     @Override
                     public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                         if (response.code() == 200) {
