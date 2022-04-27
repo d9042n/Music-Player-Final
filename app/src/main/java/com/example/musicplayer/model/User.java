@@ -9,7 +9,7 @@ public class User implements Serializable {
     private String fullName;
     private Date birthdate;
     private String country;
-    private String userID;
+    private String user_id;
 
     public User() {
     }
@@ -20,7 +20,7 @@ public class User implements Serializable {
         this.fullName = fullName;
         this.birthdate = birthdate;
         this.country = country;
-        this.userID = userID;
+        this.user_id = userID;
     }
 
     public String getUsername() {
@@ -65,11 +65,11 @@ public class User implements Serializable {
     }
 
     public String getUserID() {
-        return userID;
+        return user_id;
     }
 
     public void setUserID(String userID) {
-        this.userID = userID;
+        this.user_id = userID;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class User implements Serializable {
                 ", fullName='" + fullName + '\'' +
                 ", birthdate=" + birthdate +
                 ", country='" + country + '\'' +
-                ", userID='" + userID + '\'' +
+                ", userID='" + user_id + '\'' +
                 '}';
     }
 }

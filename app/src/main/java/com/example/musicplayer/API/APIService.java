@@ -1,7 +1,7 @@
 package com.example.musicplayer.API;
 
-import com.example.musicplayer.model.LoginResponse;
 import com.example.musicplayer.model.User;
+import com.example.musicplayer.model.UserAPIResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -30,6 +30,10 @@ public interface APIService {
 
     @FormUrlEncoded
     @POST("authentication/login/")
-    Call<LoginResponse> userLogin(@Field("username_or_email") String username_or_email, @Field("password") String password);
+    Call<UserAPIResponse> userLogin(@Field("username_or_email") String username_or_email, @Field("password") String password);
+
+    @FormUrlEncoded
+    @POST("authentication/register/")
+    Call<UserAPIResponse> userRegister(@Field("username") String username, @Field("email") String email, @Field("password") String password);
 
 }

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background">
 
     <TextView
-        android:id="@+id/loginTextViewSignIn"
+        android:id="@+id/registerTextViewSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_medium"
-        android:text="Sign in"
+        android:text="Sign Up"
         android:textColor="#FFFFFF"
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,13 +20,13 @@
         app:layout_constraintVertical_bias="0.18" />
 
     <EditText
-        android:id="@+id/loginEditTextUsernameOrEmail"
+        android:id="@+id/registerEditTextUsername"
         android:layout_width="330dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/login_field"
         android:fontFamily="@font/roboto"
-        android:hint="Username or email"
+        android:hint="Username"
         android:inputType="text"
         android:padding="20dp"
         android:textColor="#FFFFFF"
@@ -35,10 +34,27 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextViewSignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/registerTextViewSignUp" />
 
     <EditText
-        android:id="@+id/loginEditTextPassword"
+        android:id="@+id/registerEditTextEmail"
+        android:layout_width="330dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/login_field"
+        android:fontFamily="@font/roboto"
+        android:hint="Email"
+        android:inputType="text"
+        android:padding="20dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerEditTextUsername" />
+
+    <EditText
+        android:id="@+id/registerEditTextPassword"
         android:layout_width="330dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
@@ -52,61 +68,47 @@
         android:textSize="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEditTextUsernameOrEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/registerEditTextEmail" />
 
     <Button
-        android:id="@+id/loginButtonLogin"
+        android:id="@+id/registerButtonRegister"
         android:layout_width="330dp"
         android:layout_height="55dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/login_button"
-        android:text="Sign in"
+        android:text="Sign Up"
         android:textColor="#000000"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginEditTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/registerEditTextPassword" />
 
     <TextView
-        android:id="@+id/loginTextViewForgotEmailOrPassword"
+        android:id="@+id/registerTextViewLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:clickable="true"
         android:fontFamily="@font/roboto"
-        android:text="Forgot your password ?"
+        android:text="Have an account? Log in."
         android:textColor="#FFFFFF"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButtonLogin" />
-
-    <Button
-        android:id="@+id/loginButtonRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="@drawable/login_button"
-        android:backgroundTint="#707070"
-        android:padding="10dp"
-        android:text="Create account"
-        android:textColor="#FFFFFF"
-        android:textSize="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginTextViewForgotEmailOrPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/registerButtonRegister" />
 
     <TextView
-        android:id="@+id/loginTextViewTrial"
+        android:id="@+id/registerTextViewTrial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="67dp"
         android:fontFamily="@font/roboto"
         android:text="Free for 3 months, then Bạch Mai cho mỗi tháng tiếp theo"
         android:textColor="#707070"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginButtonRegister" />
+        app:layout_constraintTop_toBottomOf="@+id/registerTextViewLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

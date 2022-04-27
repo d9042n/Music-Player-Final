@@ -1,9 +1,8 @@
 package com.example.musicplayer.model;
 
-public class LoginResponse {
+public class UserAPIResponse {
     private int code;
     private String content;
-    private String refresh_token;
     private User data;
     private String status;
     private String status_code;
@@ -22,14 +21,6 @@ public class LoginResponse {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public String getRefresh_token() {
-        return refresh_token;
-    }
-
-    public void setRefresh_token(String refresh_token) {
-        this.refresh_token = refresh_token;
     }
 
     public User getData() {

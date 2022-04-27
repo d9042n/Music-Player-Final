@@ -5,74 +5,80 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.musicplayer.API.APIService;
 import com.example.musicplayer.R;
-import com.example.musicplayer.model.UserAPIResponse;
 import com.example.musicplayer.model.User;
+import com.example.musicplayer.model.UserAPIResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class RegisterActivity extends AppCompatActivity {
 
-    private EditText editTextUsernameOrEmail;
+    private EditText editTextUsername;
+    private EditText editTextEmail;
     private EditText editTextPassword;
-    private Button buttonLogin;
-    private Button buttonRegister;
+    private Button buttonSignUp;
+    private TextView textViewLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
-        editTextUsernameOrEmail = findViewById(R.id.loginEditTextUsernameOrEmail);
-        editTextPassword = findViewById(R.id.loginEditTextPassword);
-        buttonLogin = findViewById(R.id.loginButtonLogin);
-        buttonRegister = findViewById(R.id.loginButtonRegister);
+        editTextUsername = findViewById(R.id.registerEditTextUsername);
+        editTextEmail = findViewById(R.id.registerEditTextEmail);
+        editTextPassword = findViewById(R.id.registerEditTextPassword);
+        buttonSignUp = findViewById(R.id.registerButtonRegister);
+        textViewLogin = findViewById(R.id.registerTextViewLogin);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String usernameOrEmail = editTextUsernameOrEmail.getText().toString().trim();
+                String username = editTextUsername.getText().toString().trim();
+                String email = editTextEmail.getText().toString().trim();
                 String password = editTextPassword.getText().toString().trim();
 
-                APIService.userAPIService.userLogin(usernameOrEmail, password).enqueue(new Callback<UserAPIResponse>() {
+                APIService.userAPIService.userRegister(username, email, password).enqueue(new Callback<UserAPIResponse>() {
                     @Override
                     public void onResponse(Call<UserAPIResponse> call, Response<UserAPIResponse> response) {
-                        if (response.code() == 200) {
+                        if (response.code() == 201) {
                             String userID = response.body().getData().getUserID();
 
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             Bundle bundle = new Bundle();
                             bundle.putSerializable("user_id", userID);
                             intent.putExtras(bundle);
                             startActivity(intent);
                         } else {
-                            Toast.makeText(LoginActivity.this, "Invalid Email or Password!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(RegisterActivity.this, "Email or username already exists!", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<UserAPIResponse> call, Throwable t) {
-                        Toast.makeText(LoginActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(RegisterActivity.this, "Failed!", Toast.LENGTH_SHORT).show();
                     }
                 });
-
             }
         });
 
-        buttonRegister.setOnClickListener(new View.OnClickListener() {
+        textViewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
 
+
     }
+
+
 }
