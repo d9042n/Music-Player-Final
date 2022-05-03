@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.musicplayer.API.APIService;
 import com.example.musicplayer.R;
-import com.example.musicplayer.model.User;
 import com.example.musicplayer.model.UserAPIResponse;
 
 import retrofit2.Call;
