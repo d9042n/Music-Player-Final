@@ -1,7 +1,6 @@
 package com.example.musicplayer.activity;
 
 import android.Manifest;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -9,7 +8,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -48,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         initViewPager2();
 
         localSongs = getAllLocalSongs(this);
-
     }
 
 

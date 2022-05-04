@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.musicplayer.R;
 import com.example.musicplayer.activity.PlayerActivity;
 import com.example.musicplayer.model.Song;
@@ -42,17 +43,16 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         holder.textViewSongTitle.setText(mSongs.get(position).getTitle());
         holder.textViewSongArtist.setText(mSongs.get(position).getArtist());
 
-        // Load album art
-//        byte[] image = getAlbumArt(mSongs.get(position).getPath());
-//        if (image != null) {
-//            Glide.with(mContext).asBitmap()
-//                    .load(image)
-//                    .into(holder.imageViewSongImage);
-//        } else {
-//            Glide.with(mContext)
-//                    .load(R.drawable.menu_song_icon)
-//                    .into(holder.imageViewSongImage);
-//        }
+        byte[] image = getCoverArt(mSongs.get(position).getPath());
+        if (image != null) {
+            Glide.with(mContext).asBitmap()
+                    .load(image)
+                    .into(holder.imageViewSongImage);
+        } else {
+            Glide.with(mContext).asBitmap()
+                    .load(R.drawable.ic_launcher_background)
+                    .into(holder.imageViewSongImage);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,7 +85,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
     }
 
 
-    private byte[] getAlbumArt(String path) {
+    private byte[] getCoverArt(String path) {
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
         retriever.setDataSource(path);
         byte[] art = retriever.getEmbeddedPicture();
