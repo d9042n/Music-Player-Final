@@ -47,10 +47,12 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.ViewHolder> {
         if (image != null) {
             Glide.with(mContext).asBitmap()
                     .load(image)
+                    .circleCrop()
                     .into(holder.imageViewSongImage);
         } else {
             Glide.with(mContext).asBitmap()
-                    .load(R.drawable.ic_launcher_background)
+                    .load(R.drawable.player_pause_icon)
+                    .circleCrop()
                     .into(holder.imageViewSongImage);
         }
 

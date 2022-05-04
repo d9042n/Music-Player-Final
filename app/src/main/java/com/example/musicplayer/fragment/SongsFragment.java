@@ -1,6 +1,6 @@
 package com.example.musicplayer.fragment;
 
-import static com.example.musicplayer.activity.MainActivity.localSongs;
+import static com.example.musicplayer.activity.MainActivity.listAllSongs;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,8 +29,8 @@ public class SongsFragment extends Fragment {
         recyclerViewSongsFragment = view.findViewById(R.id.recyclerViewSongsFragment);
         recyclerViewSongsFragment.setHasFixedSize(true);
 
-        if (localSongs.size() > 0) {
-            songAdapter = new SongAdapter(getContext(), localSongs);
+        if (listAllSongs.size() > 0) {
+            songAdapter = new SongAdapter(getContext(), listAllSongs);
             recyclerViewSongsFragment.setAdapter(songAdapter);
             recyclerViewSongsFragment.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         }

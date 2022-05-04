@@ -27,7 +27,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    public static ArrayList<Song> localSongs;
+    public static ArrayList<Song> listAllSongs;
 
     private static final int PERMISSION_REQUEST_CODE = 10;
 
@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
 
         initViewPager2();
 
-        localSongs = getAllLocalSongs(this);
+        listAllSongs = getAllLocalSongs(this);
+        Song song = new Song("HandClap", "Fitz and the Tantrums", "Unknown", "311000", null, "https://drive.google.com/u/6/uc?id=1_50m6RMn-KGK4X8CJsSt7hCVM-W8oJCw");
+        listAllSongs.add(song);
     }
 
 
