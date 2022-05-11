@@ -92,10 +92,10 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (shuffleBoolean) {
                     shuffleBoolean = false;
-                    shuffleButton.setImageResource(R.drawable.ic_shuffle_off);
+                    shuffleButton.setImageResource(R.drawable.player_shuffle_off);
                 } else {
                     shuffleBoolean = true;
-                    shuffleButton.setImageResource(R.drawable.ic_shuffle_on);
+                    shuffleButton.setImageResource(R.drawable.player_shuffle_on);
                 }
             }
         });
@@ -104,10 +104,10 @@ public class PlayerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (repeatBoolean) {
                     repeatBoolean = false;
-                    repeatButton.setImageResource(R.drawable.ic_repeat_off);
+                    repeatButton.setImageResource(R.drawable.player_repeat_off);
                 } else {
                     repeatBoolean = true;
-                    repeatButton.setImageResource(R.drawable.ic_repeat_on);
+                    repeatButton.setImageResource(R.drawable.player_repeat_on);
                 }
             }
         });

@@ -9,9 +9,9 @@
         android:icon="@drawable/menu_song_icon"
         android:title="Songs" />
     <item
-        android:id="@+id/menu_favorites"
-        android:icon="@drawable/menu_favorites_icon"
-        android:title="Favorites" />
+        android:id="@+id/menu_album"
+        android:icon="@drawable/menu_album_icon"
+        android:title="Album" />
     <item
         android:id="@+id/menu_search"
         android:icon="@drawable/menu_search_icon"

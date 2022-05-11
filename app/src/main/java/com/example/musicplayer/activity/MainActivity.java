@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.menu_songs:
                         viewPager2.setCurrentItem(1);
                         break;
-                    case R.id.menu_favorites:
+                    case R.id.menu_album:
                         viewPager2.setCurrentItem(2);
                         break;
                     case R.id.menu_search:
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                         bottomNavigationView.getMenu().findItem(R.id.menu_songs).setChecked(true);
                         break;
                     case 2:
-                        bottomNavigationView.getMenu().findItem(R.id.menu_favorites).setChecked(true);
+                        bottomNavigationView.getMenu().findItem(R.id.menu_album).setChecked(true);
                         break;
                     case 3:
                         bottomNavigationView.getMenu().findItem(R.id.menu_search).setChecked(true);

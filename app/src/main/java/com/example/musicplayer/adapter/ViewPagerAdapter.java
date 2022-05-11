@@ -5,7 +5,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.musicplayer.fragment.FavoritesFragment;
+import com.example.musicplayer.fragment.AlbumFragment;
 import com.example.musicplayer.fragment.HomeFragment;
 import com.example.musicplayer.fragment.SearchFragment;
 import com.example.musicplayer.fragment.SongsFragment;
@@ -24,7 +24,7 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
             case 1:
                 return new SongsFragment();
             case 2:
-                return new FavoritesFragment();
+                return new AlbumFragment();
             case 3:
                 return new SearchFragment();
             default:
