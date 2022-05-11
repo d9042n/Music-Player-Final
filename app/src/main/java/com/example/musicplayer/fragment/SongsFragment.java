@@ -17,7 +17,7 @@ import com.example.musicplayer.adapter.SongAdapter;
 public class SongsFragment extends Fragment {
 
     RecyclerView recyclerViewSongsFragment;
-    SongAdapter songAdapter;
+    public static SongAdapter songAdapter;
 
 
     @Override

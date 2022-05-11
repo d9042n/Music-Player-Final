@@ -1,6 +1,7 @@
 package com.example.musicplayer.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaMetadataRetriever;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.musicplayer.R;
+import com.example.musicplayer.activity.AlbumActivity;
 import com.example.musicplayer.model.Song;
 
 import java.util.ArrayList;
@@ -49,6 +51,15 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
                     .circleCrop()
                     .into(holder.imageViewAlbumCover);
         }
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, AlbumActivity.class);
+                intent.putExtra("album_name", mAlbums.get(holder.getAdapterPosition()).getAlbum());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -62,8 +73,8 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.ViewHolder> 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewAlbumName = itemView.findViewById(R.id.albumTextViewAlbumName);
-            imageViewAlbumCover = itemView.findViewById(R.id.albumImageViewAlbumCover);
+            textViewAlbumName = itemView.findViewById(R.id.albumItemTextViewAlbumName);
+            imageViewAlbumCover = itemView.findViewById(R.id.albumItemImageViewAlbumCover);
         }
     }
 

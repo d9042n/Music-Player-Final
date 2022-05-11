@@ -3,6 +3,8 @@ package com.example.musicplayer.activity;
 import static com.example.musicplayer.activity.MainActivity.listAllSongs;
 import static com.example.musicplayer.activity.MainActivity.repeatBoolean;
 import static com.example.musicplayer.activity.MainActivity.shuffleBoolean;
+import static com.example.musicplayer.adapter.AlbumDetailAdapter.mAlbumSongs;
+import static com.example.musicplayer.adapter.SongAdapter.mSongs;
 
 import android.media.AudioAttributes;
 import android.media.MediaMetadataRetriever;
@@ -294,7 +296,13 @@ public class PlayerActivity extends AppCompatActivity {
 
     private void getIntentMethod() {
         position = getIntent().getIntExtra("position", -1);
-        listSongs = listAllSongs;
+
+        String sender = getIntent().getStringExtra("sender");
+        if (sender != null && sender.equals("albumDetails")) {
+            listSongs = mAlbumSongs;
+        } else {
+            listSongs = mSongs;
+        }
 
         if (listSongs != null) {
             playPauseButton.setImageResource(R.drawable.player_pause_icon);
