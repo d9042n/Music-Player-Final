@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     private ViewPager2 viewPager2;
 
+    static boolean shuffleBoolean = false, repeatBoolean = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         initViewPager2();
 
         listAllSongs = getAllLocalSongs(this);
-        Song song = new Song("HandClap", "Fitz and the Tantrums", "Unknown", "311000", null, "https://drive.google.com/u/6/uc?id=1_50m6RMn-KGK4X8CJsSt7hCVM-W8oJCw");
+        Song song = new Song(null,"HandClap", "Fitz and the Tantrums", "Unknown", "311000", null, "https://drive.google.com/u/6/uc?id=1_50m6RMn-KGK4X8CJsSt7hCVM-W8oJCw");
         listAllSongs.add(song);
     }
 
@@ -151,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                 MediaStore.Audio.Media.ALBUM,
                 MediaStore.Audio.Media.DURATION,
                 MediaStore.Audio.Media.DATA,
+                MediaStore.Audio.Media._ID,
         };
 
         String selection = MediaStore.Audio.Media.IS_MUSIC + "!= 0";
@@ -164,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
             int albumID = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM);
             int durationID = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DURATION);
             int pathID = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
+            int _id = cursor.getColumnIndexOrThrow(MediaStore.Audio.Media._ID);
 
             while (cursor.moveToNext()) {
                 String title = cursor.getString(titleID);
@@ -171,11 +175,12 @@ public class MainActivity extends AppCompatActivity {
                 String album = cursor.getString(albumID);
                 String duration = cursor.getString(durationID);
                 String path = cursor.getString(pathID);
+                String id = cursor.getString(_id);
 
 //                Uri path = ContentUris.withAppendedId(
 //                        MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, pathID);
 
-                Song song = new Song(title, artist, album, duration, path, null);
+                Song song = new Song(id, title, artist, album, duration, path, null);
                 localSongsList.add(song);
             }
             cursor.close();

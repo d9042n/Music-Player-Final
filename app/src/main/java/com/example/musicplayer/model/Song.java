@@ -1,6 +1,7 @@
 package com.example.musicplayer.model;
 
 public class Song {
+    private String id;
     private String title;
     private String artist;
     private String album;
@@ -11,13 +12,22 @@ public class Song {
     public Song() {
     }
 
-    public Song(String title, String artist, String album, String duration, String localPath, String onlinePath) {
+    public Song(String id, String title, String artist, String album, String duration, String localPath, String onlinePath) {
+        this.id = id;
         this.title = title;
         this.artist = artist;
         this.album = album;
         this.duration = duration;
         this.localPath = localPath;
         this.onlinePath = onlinePath;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitle() {
