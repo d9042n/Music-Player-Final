@@ -4,7 +4,13 @@ import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 
 public class PLayerAnimation {
-    public void startDiscTurnAnimation(ImageView coverArt) {
+    ImageView coverArt;
+
+    public void setCoverArt(ImageView coverArt) {
+        this.coverArt = coverArt;
+    }
+
+    public void startDiscTurnAnimation() {
         Runnable animationRunnable = new Runnable() {
             @Override
             public void run() {
@@ -16,7 +22,7 @@ public class PLayerAnimation {
                 .setInterpolator(new LinearInterpolator()).start();
     }
 
-    public void stopDiscTurnAnimation(ImageView coverArt) {
+    public void stopDiscTurnAnimation() {
         coverArt.animate().cancel();
     }
 
