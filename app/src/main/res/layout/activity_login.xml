@@ -100,7 +100,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto"
-        android:text="Free for 3 months, then Bạch Mai cho mỗi tháng tiếp theo"
+        android:text="Free for 3 months, then 1$ cho mỗi tháng tiếp theo"
         android:textColor="#707070"
         android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"

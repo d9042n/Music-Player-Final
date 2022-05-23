@@ -3,6 +3,8 @@ package com.example.musicplayer.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.musicplayer.API.APIService;
 import com.example.musicplayer.R;
 import com.example.musicplayer.model.UserAPIResponse;
-import com.example.musicplayer.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,7 +29,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setFullScreen();
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
+
 
         editTextUsernameOrEmail = findViewById(R.id.loginEditTextUsernameOrEmail);
         editTextPassword = findViewById(R.id.loginEditTextPassword);
@@ -73,6 +77,9 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+    }
+    private void setFullScreen() {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }
